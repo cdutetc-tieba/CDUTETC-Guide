@@ -573,3 +573,336 @@
     text-align: center;
   }
 }
+
+/* ===== 可点击卡片 ===== */
+
+.click-card {
+  display: block;
+  padding: 20px 24px;
+  margin: 16px 0;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out-quart), border-color 0.2s ease, box-shadow 0.2s var(--ease-out-quart), background 0.2s ease;
+}
+
+.click-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 4px 14px rgba(26, 35, 126, 0.1);
+  background: var(--vp-c-bg);
+}
+
+.click-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(26, 35, 126, 0.08);
+}
+
+.click-card::after {
+  content: '↗';
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 1.2rem;
+  color: var(--vp-c-brand-2);
+  opacity: 0.5;
+  transition: transform 0.2s var(--ease-out-quart), opacity 0.2s ease;
+}
+
+.click-card:hover::after {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+.click-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 28px;
+}
+
+.click-card .card-desc {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.click-card .card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.dark .click-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 侧边栏高亮模块（转专业攻略） ===== */
+
+.VPSidebarItem .item[href*="/major-transfer/"] .text,
+.VPSidebarItem.has-active .item .text {
+  position: relative;
+}
+
+.VPSidebarItem.level-1 > .item .text {
+  font-weight: 600;
+}
+
+/* 转专业攻略子项指示器 */
+.VPSidebarItem .item[href$="/major-transfer"] .text::before {
+  content: '🎯';
+  margin-right: 4px;
+  font-size: 0.9em;
+}
+
+.VPSidebarItem .item[href$="/major-transfer"] {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+.VPSidebarItem .item[href$="/major-transfer"]:hover {
+  color: var(--color-accent) !important;
+}
+
+.dark .VPSidebarItem .item[href$="/major-transfer"] {
+  color: #7986cb !important;
+}
+
+/* ===== 底部导航链接 ===== */
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.page-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s var(--ease-out-quart);
+  flex: 1;
+  max-width: 48%;
+}
+
+.page-nav-link:hover {
+  border-color: var(--vp-c-brand-2);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.1);
+}
+
+.page-nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(26, 35, 126, 0.08);
+}
+
+.page-nav-link.prev {
+  justify-content: flex-start;
+}
+
+.page-nav-link.next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.page-nav-link .nav-icon {
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: transform 0.2s var(--ease-out-quart), opacity 0.2s ease;
+}
+
+.page-nav-link:hover .nav-icon {
+  opacity: 1;
+}
+
+.page-nav-link.prev:hover .nav-icon {
+  transform: translateX(-3px);
+}
+
+.page-nav-link.next:hover .nav-icon {
+  transform: translateX(3px);
+}
+
+.page-nav-link .nav-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.page-nav-link .nav-hint {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+  opacity: 0.8;
+}
+
+.page-nav-link:hover .nav-hint {
+  color: var(--vp-c-brand-2);
+  opacity: 1;
+}
+
+.page-nav-link .nav-title {
+  font-weight: 600;
+}
+
+.dark .page-nav-link:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .page-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-nav-link {
+    max-width: 100%;
+    width: 100%;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 14px 16px;
+  }
+
+  .page-nav-link.prev {
+    order: 2;
+  }
+
+  .page-nav-link.next {
+    order: 1;
+  }
+
+  .page-nav-link.prev:hover .nav-icon {
+    transform: translateX(0);
+  }
+
+  .page-nav-link.next:hover .nav-icon {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .click-card {
+    padding: 16px 18px;
+  }
+
+  .click-card::after {
+    top: 14px;
+    right: 16px;
+    font-size: 1rem;
+  }
+
+  .click-card .card-title {
+    font-size: 1rem;
+  }
+
+  .click-card .card-desc {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== 办公楼卡片样式 ===== */
+
+.building-card {
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  transition: transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
+}
+
+.building-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.building-card-header {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.building-card-icon {
+  font-size: 1.1rem;
+}
+
+.building-card-body {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 26px;
+}
+
+.building-card-body p {
+  margin: 4px 0;
+}
+
+.building-card-body strong {
+  font-weight: 600;
+}
+
+/* 各部门颜色 */
+.building-card.cyan {
+  background: rgba(181, 234, 255, 0.6);
+  border-left-color: #0288d1;
+}
+
+.building-card.light-cyan {
+  background: rgba(200, 230, 245, 0.6);
+  border-left-color: #03a9f4;
+}
+
+.building-card.orange {
+  background: rgba(255, 224, 181, 0.6);
+  border-left-color: #f57c00;
+}
+
+.building-card.purple {
+  background: rgba(243, 229, 255, 0.6);
+  border-left-color: #8e24aa;
+}
+
+.building-card.pink {
+  background: rgba(255, 224, 240, 0.6);
+  border-left-color: #e91e63;
+}
+
+.building-card.gray {
+  background: rgba(224, 224, 224, 0.6);
+  border-left-color: #616161;
+}
+
+.building-card.green {
+  background: rgba(220, 252, 231, 0.6);
+  border-left-color: #388e3c;
+}
