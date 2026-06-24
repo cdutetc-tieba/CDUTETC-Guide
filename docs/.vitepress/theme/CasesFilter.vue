@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useData } from 'vitepress'
 import { data as allCases } from './cases.data'
 
