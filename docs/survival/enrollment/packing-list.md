@@ -1,10 +1,10 @@
 ---
-title: 必备物品清单
+title: 推荐物品清单
 order: 2
-description: 新生入学必备物品参考
+description: 新生入学推荐物品参考
 ---
 
-# 必备物品清单
+# 推荐物品清单
 
 ## 报道需求
 
