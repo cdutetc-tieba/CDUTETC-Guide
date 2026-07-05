@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>坐标拾取器 - CDUTETC</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; }
+    #search-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; gap: 8px; padding: 12px 16px;
+      background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #search-bar input {
+      flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;
+    }
+    #search-bar button {
+      padding: 8px 16px; background: #1890ff; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 14px;
+    }
+    #search-bar button:hover { background: #40a9ff; }
+    #map { width: 100%; height: 100vh; padding-top: 52px; }
+    #result {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
+      padding: 12px 20px; background: #fff; border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15); font-size: 14px; display: none;
+    }
+    #result .coords { font-family: monospace; font-size: 15px; color: #1890ff; font-weight: 600; }
+    #result button {
+      margin-left: 12px; padding: 4px 10px; background: #52c41a; color: #fff;
+      border: none; border-radius: 4px; cursor: pointer; font-size: 13px;
+    }
+    #poi-list {
+      position: fixed; top: 52px; left: 0; right: 0; z-index: 998;
+      max-height: 300px; overflow-y: auto; background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none;
+    }
+    #poi-list .poi-item {
+      padding: 10px 16px; border-bottom: 1px solid #f0f0f0; cursor: pointer; font-size: 14px;
+    }
+    #poi-list .poi-item:hover { background: #f5f5f5; }
+    #poi-list .poi-item .name { font-weight: 600; }
+    #poi-list .poi-item .addr { color: #999; font-size: 12px; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <div id="search-bar">
+    <input id="search-input" type="text" placeholder="搜索地点（如：成都理工大学工程技术学院 食堂）" />
+    <button onclick="doSearch()">搜索</button>
+    <button onclick="clearAll()" style="background:#999">清除</button>
+  </div>
+  <div id="poi-list"></div>
+  <div id="map"></div>
+  <div id="result"></div>
+
+  <script>
+    window._AMapSecurityConfig = { securityJsCode: '71fbb5a216b52ec052db6610497c17a9' }
+  </script>
+  <script src="https://webapi.amap.com/loader.js"></script>
+  <script>
+    let map, placeSearch, markers = []
+
+    AMapLoader.load({
+      key: '886bba5547c550066d9a0200f47fb12b',
+      version: '2.0',
+      plugins: ['AMap.PlaceSearch', 'AMap.AutoComplete']
+    }).then(AMap => {
+      map = new AMap.Map('map', {
+        zoom: 16,
+        center: [103.731, 29.560],
+        viewMode: '2D'
+      })
+
+      placeSearch = new AMap.PlaceSearch({ city: '乐山', pageSize: 20 })
+
+      // 点击地图获取坐标
+      map.on('click', e => {
+        const { lng, lat } = e.lnglat
+        showResult(lng, lat, '点击位置')
+        addTempMarker(AMap, [lng, lat], '点击位置')
+      })
+
+      // 回车搜索
+      document.getElementById('search-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') doSearch()
+      })
+    })
+
+    function doSearch() {
+      const keyword = document.getElementById('search-input').value.trim()
+      if (!keyword) return
+
+      placeSearch.search(keyword, (status, result) => {
+        const list = document.getElementById('poi-list')
+        list.innerHTML = ''
+
+        if (status === 'complete' && result.poiList) {
+          result.poiList.pois.forEach(poi => {
+            const item = document.createElement('div')
+            item.className = 'poi-item'
+            item.innerHTML = `<div class="name">${poi.name}</div><div class="addr">${poi.address || poi.cityname}</div>`
+            item.onclick = () => {
+              showResult(poi.location.lng, poi.location.lat, poi.name)
+              addTempMarker(AMap, [poi.location.lng, poi.location.lat], poi.name)
+              map.setCenter([poi.location.lng, poi.location.lat])
+              list.style.display = 'none'
+            }
+            list.appendChild(item)
+          })
+          list.style.display = 'block'
+        } else {
+          list.innerHTML = '<div class="poi-item">未找到结果</div>'
+          list.style.display = 'block'
+        }
+      })
+    }
+
+    function showResult(lng, lat, name) {
+      const r = document.getElementById('result')
+      r.style.display = 'block'
+      r.innerHTML = `<strong>${name}</strong> &nbsp; <span class="coords">[${lng.toFixed(6)}, ${lat.toFixed(6)}]</span> <button onclick="copyCoord(${lng}, ${lat})">复制坐标</button>`
+    }
+
+    function copyCoord(lng, lat) {
+      const text = `[${lng.toFixed(6)}, ${lat.toFixed(6)}]`
+      navigator.clipboard.writeText(text).then(() => alert('已复制: ' + text))
+    }
+
+    function addTempMarker(AMap, pos, title) {
+      const marker = new AMap.Marker({
+        position: pos,
+        content: '<div style="width:20px;height:20px;background:#ff4d4f;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+        offset: new AMap.Pixel(-10, -10)
+      })
+      map.add(marker)
+      markers.push(marker)
+    }
+
+    function clearAll() {
+      markers.forEach(m => map.remove(m))
+      markers = []
+      document.getElementById('result').style.display = 'none'
+      document.getElementById('poi-list').style.display = 'none'
+    }
+  </script>
+</body>
+</html>
