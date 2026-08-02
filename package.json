@@ -8,17 +8,25 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "test:e2e": "playwright test",
+    "test:visual": "playwright test tests/e2e/visual.spec.ts",
+    "test:a11y": "playwright test tests/e2e/accessibility.spec.ts",
     "format": "prettier --write \"docs/**/*.md\"",
     "format:check": "prettier --check \"docs/**/*.md\"",
     "lint": "markdownlint \"docs/**/*.md\" --ignore node_modules --ignore docs/superpowers",
     "lint:fix": "markdownlint --fix \"docs/**/*.md\" --ignore node_modules --ignore docs/superpowers"
   },
   "devDependencies": {
-    "vitepress": "^1.6.0",
-    "vue": "^3.5.0",
-    "prettier": "^3.4.0",
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.62.1",
+    "gray-matter": "^4.0.3",
     "markdownlint-cli": "^0.43.0",
-    "gray-matter": "^4.0.3"
+    "prettier": "^3.4.0",
+    "vitepress": "^1.6.0",
+    "vue": "^3.5.0"
   },
-  "packageManager": "pnpm@9.0.0"
+  "packageManager": "pnpm@9.0.0",
+  "dependencies": {
+    "@lucide/vue": "^1.28.0"
+  }
 }

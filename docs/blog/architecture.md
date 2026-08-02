@@ -63,13 +63,15 @@ collapsed: false # 是否默认折叠
 
 ### 自定义主题
 
-`theme/index.ts` 注册了三个全局组件：
+`theme/index.ts` 注册了五个全局组件：
 
 - **Giscus** — 文章底部评论区（`doc-after` 插槽）
 - **Watermark** — 背景水印装饰（`layout-bottom` 插槽）
 - **CasesFilter** — 飞跃手册案例筛选器
+- **Amap** — 校园与周边地图组件
+- **HomeConcept** — 首页工程构成主义视觉组件
 
-暗色模式由 VitePress 默认主题内置支持，无需额外配置。`custom.css` 覆写了品牌色和首页 hero 样式。
+暗色模式沿用 VitePress 的切换机制，但首页和正文页都维护独立的亮暗色设计变量。`HomeConcept.vue` 负责首页强视觉，`custom.css` 负责正文、侧栏、表格、代码块和导航等阅读界面的统一风格。完整规则见[视觉设计规范](./design-system)。
 
 ## 部署流程
 
