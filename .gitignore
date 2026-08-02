@@ -22,3 +22,10 @@ docs/superpowers/
 PRODUCT.md
 DESIGN.md
 package-lock.json
+
+# Playwright transient reports (visual baselines stay tracked under tests/)
+test-results/
+playwright-report/
+blob-report/
+.playwright-cli/
+output/

@@ -63,15 +63,15 @@ pnpm docs:preview
 
 ### 常用命令
 
-| 命令 | 说明 |
-|------|------|
-| `pnpm docs:dev` | 启动开发服务器（热更新） |
-| `pnpm docs:build` | 构建生产版本 |
-| `pnpm docs:preview` | 预览构建结果 |
-| `pnpm format` | 格式化所有 Markdown 文件 |
-| `pnpm format:check` | 检查格式是否一致 |
-| `pnpm lint` | 检查 Markdown 规范 |
-| `pnpm lint:fix` | 自动修复 Markdown 规范问题 |
+| 命令                | 说明                       |
+| ------------------- | -------------------------- |
+| `pnpm docs:dev`     | 启动开发服务器（热更新）   |
+| `pnpm docs:build`   | 构建生产版本               |
+| `pnpm docs:preview` | 预览构建结果               |
+| `pnpm format`       | 格式化所有 Markdown 文件   |
+| `pnpm format:check` | 检查格式是否一致           |
+| `pnpm lint`         | 检查 Markdown 规范         |
+| `pnpm lint:fix`     | 自动修复 Markdown 规范问题 |
 
 ## 📝 投稿指南
 
@@ -107,7 +107,7 @@ date: 2024-01-01
 
 ## 📁 项目结构
 
-```
+```text
 CDUTETC-Guide/
 ├── .github/workflows/     # CI/CD 工作流
 ├── docs/
@@ -130,12 +130,14 @@ CDUTETC-Guide/
 
 ## 🎨 设计风格
 
-采用**简约 + 构成主义**设计风格：
+采用**工程构成主义 + 高可读性手册**设计语言：
 
-- 主色深蓝 `#1a237e`，强调色红 `#d32f2f`
-- 几何装饰元素（对角线、圆形、方块）
-- 粗体无衬线字体
-- 支持暗色模式
+- 暖灰米白纸面 `#ebe8de`、矿物红 `#b9362a`、近黑结构色 `#151718`
+- 首页以 HL-1 工程线稿、天体弧面和斜向结构线建立校园核工业辨识度
+- 正文页仅保留短红色标记、结构线和清晰的粗体无衬线标题
+- 亮色与暗色模式分别适配，并覆盖桌面、宽屏和移动端视觉回归测试
+
+完整规范见 [`docs/blog/design-system.md`](./docs/blog/design-system.md)。
 
 ---
 

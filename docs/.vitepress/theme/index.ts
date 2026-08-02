@@ -5,6 +5,7 @@ import Giscus from './Giscus.vue'
 import Watermark from './Watermark.vue'
 import CasesFilter from './CasesFilter.vue'
 import Amap from './Amap.vue'
+import HomeConcept from './HomeConcept.vue'
 import './custom.css'
 
 export default {
@@ -12,6 +13,7 @@ export default {
   enhanceApp({ app }) {
     app.component('CasesFilter', CasesFilter)
     app.component('Amap', Amap)
+    app.component('HomeConcept', HomeConcept)
   },
   Layout() {
     return h(DefaultTheme.Layout, null, {

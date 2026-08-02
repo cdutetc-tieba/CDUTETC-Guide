@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 720" role="img" aria-labelledby="title desc">
+  <title id="title">中国环流器一号简约线图</title>
+  <desc id="desc">根据中国环流器一号真实装置外形提炼的托卡马克环形主机、磁场线圈与支撑结构示意图</desc>
+  <g fill="none" stroke="#f4eddb" stroke-linecap="square" stroke-linejoin="miter">
+    <path stroke-width="3" d="M150 608h540M194 608v42h452v-42M242 650v28h356v-28"/>
+    <path stroke-width="2" d="M224 584v24m392-24v24M188 568h464v16H188z"/>
+
+    <circle cx="420" cy="348" r="234" stroke-width="3"/>
+    <circle cx="420" cy="348" r="202" stroke-width="1.5"/>
+    <circle cx="420" cy="348" r="138" stroke-width="3"/>
+    <circle cx="420" cy="348" r="105" stroke-width="1.5"/>
+    <path stroke-width="2" d="M420 114v468M186 348h468"/>
+    <path stroke-width="1" stroke-dasharray="7 10" d="M420 84v528M156 348h528"/>
+
+    <g stroke-width="3">
+      <path d="M386 92h68l18 52-14 72h-76l-14-72z"/>
+      <path d="M386 480h68l18 72-18 52h-68l-18-52z"/>
+      <path d="M164 314l52-18 72 14v76l-72 14-52-18z"/>
+      <path d="M552 310l72-14 52 18v68l-52 18-72-14z"/>
+    </g>
+
+    <g stroke-width="2">
+      <path d="M250 178l48-48 50 24 40 62-54 54-62-40z"/>
+      <path d="M492 154l50-24 48 48-22 52-62 40-54-54z"/>
+      <path d="M272 466l62-40 54 54-40 62-50 24-48-48z"/>
+      <path d="M452 480l54-54 62 40 22 52-48 48-50-24z"/>
+    </g>
+
+    <g stroke-width="1.5">
+      <path d="M336 124l22 92M504 124l-22 92M196 264l92 22M196 432l92-22M644 264l-92 22M644 432l-92-22M336 572l22-92M504 572l-22-92"/>
+      <path d="M314 348a106 106 0 0 1 212 0M314 348a106 106 0 0 0 212 0"/>
+      <ellipse cx="420" cy="348" rx="138" ry="78"/>
+      <ellipse cx="420" cy="348" rx="105" ry="52"/>
+    </g>
+
+    <path stroke-width="2" d="M382 286v124M458 286v124M356 310h128M356 386h128"/>
+    <path stroke-width="1" d="M398 286v124M420 286v124M442 286v124M356 326h128M356 348h128M356 370h128"/>
+
+    <path stroke-width="2" d="M118 228h84l22 22M722 228h-84l-22 22M118 468h84l22-22M722 468h-84l-22-22"/>
+    <path stroke-width="1.5" d="M130 228v-54h72M710 228v-54h-72M130 468v54h72M710 468v54h-72"/>
+  </g>
+
+  <g fill="none" stroke="#f1d16f" stroke-width="8">
+    <path d="M286 188l42-42M554 508l-42 42"/>
+    <path d="M174 348h42M624 348h42"/>
+  </g>
+
+  <g fill="#f4eddb">
+    <circle cx="420" cy="348" r="5"/>
+    <circle cx="420" cy="114" r="4"/>
+    <circle cx="420" cy="582" r="4"/>
+    <circle cx="186" cy="348" r="4"/>
+    <circle cx="654" cy="348" r="4"/>
+  </g>
+</svg>
