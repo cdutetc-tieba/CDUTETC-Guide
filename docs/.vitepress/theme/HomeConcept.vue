@@ -70,19 +70,21 @@ function openSearch() {
       </div>
 
       <figure class="concept-machine">
-        <div class="concept-machine__rays" aria-hidden="true">
-          <span class="concept-hero__beam concept-hero__beam--1" />
-          <span class="concept-hero__beam concept-hero__beam--2" />
-          <span class="concept-hero__beam concept-hero__beam--3" />
-          <span class="concept-hero__beam concept-hero__beam--4" />
-          <span class="concept-hero__beam concept-hero__beam--5" />
+        <div class="concept-machine__visual">
+          <div class="concept-machine__rays" aria-hidden="true">
+            <span class="concept-hero__beam concept-hero__beam--1" />
+            <span class="concept-hero__beam concept-hero__beam--2" />
+            <span class="concept-hero__beam concept-hero__beam--3" />
+            <span class="concept-hero__beam concept-hero__beam--4" />
+            <span class="concept-hero__beam concept-hero__beam--5" />
+          </div>
+          <div class="concept-machine__crosshair" aria-hidden="true" />
+          <img
+            class="concept-machine__art"
+            src="/images/hl1-tokamak-linework.svg"
+            alt="中国环流器一号托卡马克环形主机简约线图"
+          >
         </div>
-        <div class="concept-machine__crosshair" aria-hidden="true" />
-        <img
-          class="concept-machine__art"
-          src="/images/hl1-tokamak-linework.svg"
-          alt="中国环流器一号托卡马克环形主机简约线图"
-        >
         <figcaption>
           <strong>中国环流器一号</strong>
           <span>HL-1 / 451 工程 / 1984</span>
@@ -1248,6 +1250,11 @@ body:has(.concept-home) .VPFooter {
   pointer-events: none;
 }
 
+.concept-machine__visual {
+  position: absolute;
+  inset: 0;
+}
+
 .concept-hero__beam {
   --ray-width: 58%;
   --ray-opacity: 0.68;
@@ -1302,7 +1309,8 @@ body:has(.concept-home) .VPFooter {
 .concept-home .concept-hero__title {
   margin-top: 40px;
   font-size: clamp(88px, 6.7vw, 128px);
-  line-height: 0.9;
+  line-height: 1.1;
+  row-gap: 0.07em;
 }
 
 .concept-hero__join {
@@ -1345,10 +1353,10 @@ body:has(.concept-home) .VPFooter {
   right: 4%;
   bottom: 5%;
   min-width: 282px;
-  padding: 12px 0 12px 16px;
+  padding: 12px 16px;
   border-left: 1px solid var(--concept-yellow);
   color: var(--concept-white);
-  background: transparent;
+  background: rgba(16, 18, 18, 0.9);
   font-size: 12px;
 }
 
@@ -1567,12 +1575,12 @@ body:has(.concept-home) .VPFooter {
 
 @media (max-width: 720px) {
   .concept-hero {
-    min-height: 760px;
+    min-height: clamp(970px, 255vw, 1020px);
     grid-template-columns: 1fr;
   }
 
   .concept-hero__red-plane {
-    top: 48%;
+    top: 56%;
     right: -52%;
     width: 146%;
     height: auto;
@@ -1581,14 +1589,14 @@ body:has(.concept-home) .VPFooter {
   }
 
   .concept-hero__axis--a {
-    top: 69%;
+    top: 75%;
     right: -16%;
     width: 132%;
     height: 34px;
   }
 
   .concept-hero__sun {
-    top: 51%;
+    top: 59%;
     right: 8%;
     width: 72px;
   }
@@ -1596,12 +1604,14 @@ body:has(.concept-home) .VPFooter {
   .concept-hero__content {
     width: calc(100% - 40px);
     margin: 0 20px;
-    padding: 46px 0 354px;
+    padding: 46px 0 430px;
   }
 
   .concept-home .concept-hero__title {
     margin-top: 28px;
     font-size: clamp(54px, 15vw, 62px);
+    line-height: 1.12;
+    row-gap: 0.08em;
   }
 
   .concept-hero__beam {
@@ -1619,14 +1629,29 @@ body:has(.concept-home) .VPFooter {
   }
 
   .concept-machine {
-    right: -82px;
-    bottom: 50px;
-    width: 455px;
+    right: -58px;
+    bottom: 58px;
+    width: min(390px, 110vw);
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0;
+  }
+
+  .concept-machine__visual {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1.08;
   }
 
   .concept-machine figcaption {
-    right: 82px;
-    bottom: 1%;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(252px, calc(100vw - 40px));
+    min-width: min(252px, calc(100vw - 40px));
+    margin-right: 58px;
+    margin-left: auto;
   }
 
   .concept-directory,
@@ -1678,6 +1703,12 @@ body:has(.concept-home) .VPFooter {
 
   .concept-statement__seal {
     width: 126px;
+  }
+}
+
+@media (max-width: 340px) {
+  body:has(.concept-home) .VPNavBarTitle .title {
+    font-size: 14px;
   }
 }
 

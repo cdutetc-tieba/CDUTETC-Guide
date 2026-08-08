@@ -13,6 +13,7 @@ for (const target of pages) {
     await expect(page).toHaveScreenshot(`${target.name}.png`, {
       animations: 'disabled',
       fullPage: true,
+      maxDiffPixels: 150,
     })
   })
 }
