@@ -43,6 +43,15 @@ export default defineConfig({
       name: 'mobile-chromium',
       use: { ...devices['Pixel 7'], channel: 'chrome' },
     },
+    {
+      name: 'small-mobile-chromium',
+      testMatch: /visual\.spec\.ts/,
+      use: {
+        ...devices['Pixel 7'],
+        channel: 'chrome',
+        viewport: { width: 320, height: 800 },
+      },
+    },
   ],
   webServer: {
     command: `pnpm docs:dev --host 127.0.0.1 --port ${testPort}`,
