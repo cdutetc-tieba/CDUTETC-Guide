@@ -665,6 +665,10 @@ body:has(.concept-home) .VPFooter .copyright {
   font-weight: 900;
 }
 
+.concept-entry--red .concept-entry__meta {
+  color: var(--concept-red-dark);
+}
+
 .concept-entry__body strong {
   font-size: 30px;
   font-weight: 950;
@@ -887,7 +891,7 @@ body:has(.concept-home) .VPFooter .copyright {
 }
 
 .concept-link-row small {
-  color: rgba(24, 28, 29, 0.68);
+  color: rgba(24, 28, 29, 0.76);
   font-size: 13px;
 }
 

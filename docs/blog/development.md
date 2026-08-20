@@ -68,15 +68,19 @@ pnpm docs:build
 
 ## Frontmatter 规范
 
+普通内容页使用基础字段：
+
 ```yaml
 ---
 title: 文章标题 # 必填，显示在侧边栏
 order: 1 # 排序权重，数字越小越靠前
-description: 描述 # 用于 SEO
-author: 作者名 # 飞跃手册文章建议填写
-date: 2024-01-01 # 发布日期
+description: 文章解决的问题或内容说明 # 用于 SEO 和搜索
 ---
 ```
+
+飞跃手册案例的字段与栏目筛选器直接对应：考研使用 `year / target / major / zone / degree / cross`，留学使用 `year / region / major`，就业使用 `year / industry / type`，并填写公开署名 `author` 和发布日期 `date`。完整示例见[投稿指南](/contribute)和 `docs/templates/`。
+
+案例加载器会忽略目录首页和 `_category.md`。开发期间如确需保留界面占位，设置 `placeholder: true`，并在标题、正文和列表卡片中明确显示占位状态；占位内容不得虚构成绩、录取或就业结果。留学案例的 `region` 填写具体目的地，大洲分组由 `CasesFilter.vue` 生成。
 
 ## 代码规范说明
 

@@ -4,6 +4,10 @@ order: 1
 description: 校园内主要教学楼和办公楼介绍。
 ---
 
+<script setup>
+import { buildingMarkers } from '../../.vitepress/theme/mapData'
+</script>
+
 # 教学楼与办公楼
 
 ::: tip 🚧 内容征集
@@ -15,12 +19,7 @@ description: 校园内主要教学楼和办公楼介绍。
 <Amap
   :center="[103.733, 29.560]"
   :zoom="17"
-  :markers="[
-    { position: [103.7344, 29.5610], title: '1号教学楼', category: 'teach', categoryLabel: '教学楼', categoryColor: '#52c41a', desc: '主教学楼' },
-    { position: [103.7357, 29.5627], title: '8号教学楼', category: 'teach', categoryColor: '#52c41a', desc: '8号教学楼' },
-    { position: [103.7336, 29.5601], title: '图书馆', category: 'study', categoryLabel: '学习场所', categoryColor: '#1890ff', desc: '学校图书馆', tags: ['自习', '借阅'] },
-    { position: [103.7293, 29.5580], title: '会议服务中心', category: 'admin', categoryLabel: '行政', categoryColor: '#fadb14', desc: '学校会议服务中心' }
-  ]"
+  :markers="buildingMarkers"
   height="400px"
 />
 

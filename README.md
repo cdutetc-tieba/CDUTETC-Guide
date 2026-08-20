@@ -93,17 +93,23 @@ pnpm docs:preview
 - 简短且有意义
 - 示例：`postgraduate-experience.md`、`dorm-life-guide.md`
 
-### Frontmatter 模板
+### 模板选择
+
+- 校园实用信息：`docs/templates/survival-entry.md`
+- 校园处境与观点文章：`docs/templates/survival-perspective-entry.md`
+- 考研、留学和就业经历：分别使用对应的 `leap-*-entry.md`
+
+所有文章都包含标题和描述；具体筛选字段以所选模板为准：
 
 ```yaml
 ---
 title: 文章标题
 order: 1
-description: 简要描述
-author: 作者名
-date: 2024-01-01
+description: 文章解决的问题或样本背景
 ---
 ```
+
+飞跃手册案例只接收本人投稿或获得明确授权的访谈。公开页面可以匿名，但经历来源需要由维护者确认。
 
 ## 📁 项目结构
 

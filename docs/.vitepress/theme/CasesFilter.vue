@@ -238,8 +238,11 @@ function setIndeterminate(el, value) {
       <button v-if="hasActive" class="cases-clear" @click="clearAll">清除筛选</button>
     </div>
     <div class="cases-list">
-      <a v-for="c in filtered" :key="c.url" class="cases-card" :href="c.url">
-        <div class="cases-card-title">{{ c.title }}</div>
+      <a v-for="c in filtered" :key="c.url" class="cases-card" :class="{ placeholder: c.placeholder }" :href="c.url">
+        <div class="cases-card-heading">
+          <div class="cases-card-title">{{ c.title }}</div>
+          <span v-if="c.placeholder" class="cases-card-status">示例占位</span>
+        </div>
         <div class="cases-card-meta">
           <span v-if="c.year" class="cases-card-tag">{{ c.year }}</span>
           <template v-for="layer in layers" :key="layer.key">
@@ -434,7 +437,25 @@ function setIndeterminate(el, value) {
   font-size: 16px;
   font-weight: 600;
   color: var(--vp-c-text-1);
+}
+.cases-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
   margin-bottom: 8px;
+}
+.cases-card-status {
+  flex: none;
+  padding: 2px 7px;
+  border: 1px solid var(--site-red-dark);
+  color: var(--site-red-dark);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.cases-card.placeholder {
+  border-style: dashed;
 }
 .cases-card-meta {
   display: flex;
