@@ -63,13 +63,16 @@ collapsed: false # 是否默认折叠
 
 ### 自定义主题
 
-`theme/index.ts` 注册了五个全局组件：
+`theme/index.ts` 注册了三个可在 Markdown 中使用的全局组件：
 
-- **Giscus** — 文章底部评论区（`doc-after` 插槽）
-- **Watermark** — 背景水印装饰（`layout-bottom` 插槽）
 - **CasesFilter** — 飞跃手册案例筛选器
 - **Amap** — 校园与周边地图组件
 - **HomeConcept** — 首页工程构成主义视觉组件
+
+另外两个组件由自定义布局直接挂载：
+
+- **Giscus** — 文章底部评论区（`doc-after` 插槽）
+- **Watermark** — 背景水印装饰（`layout-bottom` 插槽）
 
 暗色模式沿用 VitePress 的切换机制，但首页和正文页都维护独立的亮暗色设计变量。`HomeConcept.vue` 负责首页强视觉，`custom.css` 负责正文、侧栏、表格、代码块和导航等阅读界面的统一风格。完整规则见[视觉设计规范](./design-system)。
 

@@ -95,12 +95,13 @@ date: 2024-01-01 # 发布日期
 
 ## 部署流程
 
-推送到 `main` 分支后，GitHub Actions 自动：
+向 `main` 提交 Pull Request 时，`pr-check.yml` 自动：
 
 1. 安装依赖
 2. 检查格式（`pnpm format:check`）
 3. 检查规范（`pnpm lint`）
 4. 构建站点
-5. 部署到 GitHub Pages
+
+变更合并并推送到 `main` 后，`deploy.yml` 会重新安装依赖、构建站点并部署到 GitHub Pages。
 
 网站地址：https://cdutetc-tieba.top/
