@@ -4,6 +4,10 @@ order: 1
 description: 校园周边美食推荐。
 ---
 
+<script setup>
+import { foodMarkers } from '../../.vitepress/theme/mapData'
+</script>
+
 # 周边美食
 
 ::: tip 🚧 内容征集
@@ -18,14 +22,7 @@ description: 校园周边美食推荐。
   :center="[103.7315, 29.5590]"
   :zoom="16"
   :showControls="true"
-  :markers="[
-    { position: [103.7345, 29.5594], title: '瑞幸咖啡（校内店）', category: 'campus', categoryLabel: '校内', categoryColor: '#fa541c', desc: '校内瑞幸咖啡' },
-    { position: [103.7320, 29.5592], title: '半亩园', category: 'campus', categoryColor: '#fa541c', desc: '校内餐饮' },
-    { position: [103.7321, 29.5583], title: '临榆炸鸡腿', category: 'campus', categoryColor: '#fa541c', desc: '校内炸鸡店' },
-    { position: [103.7324, 29.5576], title: '水果捞', category: 'campus', categoryColor: '#fa541c', desc: '校内甜品店' },
-    { position: [103.7370, 29.5581], title: '瑞幸咖啡（南门店）', category: 'outside', categoryLabel: '校外', categoryColor: '#eb2f96', desc: '成都理工学院乐山店，位于南门外' },
-    { position: [103.7321, 29.5564], title: '瑞幸咖啡（肖坝店）', category: 'outside', categoryColor: '#eb2f96', desc: '肖坝路瑞幸咖啡' }
-  ]"
+  :markers="foodMarkers"
   height="420px"
 />
 
